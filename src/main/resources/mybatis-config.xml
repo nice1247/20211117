@@ -17,5 +17,6 @@
   </environments>
   <mappers>
     <mapper resource="co/nero/prj/member/service/member-map.xml"/>
+    <mapper resource="co/nero/prj/notice/service/notice-map.xml"/>
   </mappers>
 </configuration>

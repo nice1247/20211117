@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.nero.prj.command.AjaxAuthorUpdate;
 import co.nero.prj.command.HomeCommand;
 import co.nero.prj.command.Logout;
 import co.nero.prj.command.MemberDelete;
@@ -22,6 +23,9 @@ import co.nero.prj.command.MemberList;
 import co.nero.prj.command.MemberLogin;
 import co.nero.prj.command.MemberLoginForm;
 import co.nero.prj.command.MemberUpdate;
+import co.nero.prj.command.NoticeForm;
+import co.nero.prj.command.NoticeList;
+import co.nero.prj.command.NoticeResister;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,7 +49,12 @@ public class FrontController extends HttpServlet {
 		map.put("/memberUpdate.do", new MemberUpdate());
 		map.put("/memberEditSave.do", new MemberEditSave());
 		map.put("/memberDelete.do", new MemberDelete());
-	}
+		map.put("/ajaxAuthorUpdate.do", new AjaxAuthorUpdate());
+		map.put("/noticeForm.do", new NoticeForm());	// 공지사항 폼 호출
+		map.put("/noticeList.do", new NoticeList());	// 공지사항 목록
+		map.put("/noticeResister.do", new NoticeResister()); // 공지사항 저장
+		
+		}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 요청을 분석 실행할 명령을 찾아 수행하고 결과를 돌려주는 메소드
@@ -60,7 +69,7 @@ public class FrontController extends HttpServlet {
 		if (!viewPage.endsWith(".do")) {
 			if (viewPage.startsWith("ajax:")) { // ajax 처리
 				response.setContentType("text/html; charset=UTF-8");
-				response.getWriter().append(viewPage.substring(5));
+				response.getWriter().append(viewPage.substring(5)); // 호출한쪽으로 돌려보내라
 				return;
 			} else {
 				viewPage = "WEB-INF/views/" + viewPage + ".jsp";
