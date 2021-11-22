@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.nero.prj.command.AjaxAuthorUpdate;
+import co.nero.prj.command.AjaxFileDownLoad;
+import co.nero.prj.command.CommonFileUpload;
 import co.nero.prj.command.HomeCommand;
 import co.nero.prj.command.Logout;
 import co.nero.prj.command.MemberDelete;
@@ -25,7 +27,7 @@ import co.nero.prj.command.MemberLoginForm;
 import co.nero.prj.command.MemberUpdate;
 import co.nero.prj.command.NoticeForm;
 import co.nero.prj.command.NoticeList;
-import co.nero.prj.command.NoticeResister;
+import co.nero.prj.command.NoticeRead;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,7 +54,11 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxAuthorUpdate.do", new AjaxAuthorUpdate());
 		map.put("/noticeForm.do", new NoticeForm());	// 공지사항 폼 호출
 		map.put("/noticeList.do", new NoticeList());	// 공지사항 목록
-		map.put("/noticeResister.do", new NoticeResister()); // 공지사항 저장
+//		map.put("/noticeResister.do", new ServletApiUpload()); // 공지사항 저장 Servlet Part
+//		map.put("/noticeResister.do", new NoticeResister()); // 공지사항 저장 cos.jar
+		map.put("/noticeResister.do", new CommonFileUpload()); // 공지사항 저장 common-fileupload
+		map.put("/noticeRead.do", new NoticeRead()); // 공지사항 상세보기
+		map.put("/ajaxFileDownLoad.do", new AjaxFileDownLoad()); // 파일 다운로드
 		
 		}
 	protected void service(HttpServletRequest request, HttpServletResponse response)

@@ -32,13 +32,9 @@ public class NoticeResister implements Command {
 			String fileName = multi.getFilesystemName("fileName"); // filename은 중복이름이 들어올 경우 자동으로 index가 있는 물리 파일명
 			String original = multi.getOriginalFileName("fileName"); // index되기 전의 파일명
 			fileName = filePath + File.separator + fileName; // 저장경로를 포함해서 만듦 (file.separator = /)
-			if(original != null) { // 첨부파일이 존재할때
-				vo.setFileName(original); // 원본파일 저장
-				vo.setPfileName(fileName); // 물리파일 저장
-			} else { // 첨부파일이 없을때
-				vo.setFileName("");
-				vo.setPfileName("");
-			}
+			
+			vo.setFileName(original); // 원본파일 저장
+			vo.setPfileName(fileName); // 물리파일 저장
 			vo.setWdate(Date.valueOf(multi.getParameter("wdate"))); // form에서 넘어오는 wdate(String)을 date값으로 바꿔줌
 			vo.setTitle(multi.getParameter("title"));
 			vo.setSubject(multi.getParameter("subject"));
