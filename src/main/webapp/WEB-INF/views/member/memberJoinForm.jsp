@@ -79,29 +79,29 @@ th {
 						<tr>
 							<th width="150">* ID</th>
 							<td width="300"><input type="email" id="id" name="id" required="required" placeholder="email을 입력하세요"
-								size="20"> <button type="button" id="idchk" onclick="idCheck()" value="No">ID중복확인</td>
+								size="20"> <button type="button" id="idchk" onclick="idCheck()" value="No">ID중복확인</button></td>
 						</tr>
 						<tr>
 							<th width="150">* Password</th>
-							<td width=150"><input type="password" id="password" 
+							<td width="150"><input type="password" id="password" 
 								name="password" required="required" placeholder="패스워드를 입력하세요"></td>
 						</tr>
 						<tr>
 							<th width="150">* Password 확인</th>
-							<td width=150"><input type="password" id="passwordChk"
+							<td width="150"><input type="password" id="passwordChk"
 								name="passwordChk" required="required" placeholder="패스워드를 다시 입력하세요"></td>
 						</tr>
 						<tr>
 							<th width="150">* 이 름</th>
-							<td width=150"><input type="text" id="name" name="name" required="required" placeholder="이름을 입력하세요"></td>
+							<td width="150"><input type="text" id="name" name="name" required="required" placeholder="이름을 입력하세요"></td>
 						</tr>
 						<tr>
 							<th width="150">전화번호</th>
-							<td width=150"><input type="text" id="tel" name="tel" required="required" placeholder="연락처를 입력하세요"></td>
+							<td width="150"><input type="text" id="tel" name="tel" required="required" placeholder="연락처를 입력하세요"></td>
 						</tr>
 						<tr>
 							<th width="150">주 소</th>
-							<td width=150"><input type="text" id="address"
+							<td width="150"><input type="text" id="address"
 								name="address" size="50" required="required" placeholder="주소를 입력하세요"></td>
 						</tr>
 					</table>

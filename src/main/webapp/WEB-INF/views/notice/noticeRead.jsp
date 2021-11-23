@@ -9,10 +9,11 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
  function fileDown(){
-	 var ofile = $("#fileName").val();
-	 var pfile = $("#pfileName").val();
-	 console.log(ofile, pfile);
-	 $.ajax({
+//	 var ofile = $("#fileName").val();
+//	 var pfile = $("#pfileName").val();
+		frm.action="AjaxFileDown";
+		frm.submit();
+	 /* $.ajax({
 		 url: "ajaxFileDownLoad.do",
 		 type: "post",
 		 data: {fileName:ofile,pfileName:pfile},
@@ -22,10 +23,11 @@
 				 alert(ofile + "이 성공적으로 다운로드 되었습니다.");
 			 }
 		 },
-		 error : function(){
+		 error : function(reject){
+			 console.log(reject);
 			 alert("파일 다운로드 실패!!");
 		 }
-	 });
+	 }); */
 	 
  }
 </script>
@@ -69,7 +71,7 @@
 				<td colspan="3">
 					<c:if test="${not empty notice.fileName }">
 						<span><img src="img/file.png" width="20" height="20">
-							<a href="#" onclick="fileDown(); return false;">${notice.fileName }</a>
+							<a href="#" onclick="fileDown();">${notice.fileName }</a>
 						</span>
 					</c:if>
 				</td>
@@ -77,7 +79,7 @@
 		</table>
 	</div><br>
 	<div>
-		<form>
+		<form id="frm">
 			<input type="hidden" id="fileName" name="fileName" value = "${notice.fileName }">
 			<input type="hidden" id="pfileName" name="pfileName" value = "${notice.pfileName }">
 			<button type="button" onclick="history.back()">목록가기</button>
